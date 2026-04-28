@@ -44,6 +44,7 @@ export function generateGrid(rows: number, cols: number): void {
         for (let j = 1; j <= cols; j++) {
             rSum += newAnswer[i][j] === -1 ? 0 : newAnswer[i][j];
         }
+        if (rSum === 0) rSum = newGrid[i][Math.floor(Math.random() * cols) + 1]; // Ensure row sum is not zero
         newGrid[i][0] = rSum;
         newAnswer[i][0] = rSum;
     }
@@ -54,6 +55,7 @@ export function generateGrid(rows: number, cols: number): void {
         for (let i = 1; i <= rows; i++) {
             cSum += newAnswer[i][j] === -1 ? 0 : newAnswer[i][j];
         }
+        if (cSum === 0) cSum = newGrid[Math.floor(Math.random() * rows) + 1][j]; // Ensure column sum is not zero
         newGrid[0][j] = cSum;
         newAnswer[0][j] = cSum;
     }
