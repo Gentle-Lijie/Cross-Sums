@@ -6,14 +6,10 @@ With Restart button, Game title, HP info-->
 		<title>Cross-Sums</title>
 		<div class="restart-btn" @click="emitter.emit('restart')">Restart</div>
 		<div class="title">Cross-Sums</div>
-		<div class="HP">HP: {{ currentHp || 0 }}</div>
-	</div>
-	<div class="debugger">
-		<button @click="debug = !debug">
-			{{ debug ? 'Hide Debug' : 'Show Debug' }}
-		</button>
-		<button v-if="debug === true" @click="updateHP(targetHp - 100, 500)">-100 HP</button>
-		<button v-if="debug === true" @click="emitter.emit('update-hp', { hp: 100, timeout: 500 })">+100 HP</button>
+		<div class="hp">
+			<span class="hp" :class="{ red: currentHp >= threshold }" v-for="threshold in hpThresholds" :key="threshold"
+				v-html="heart"></span>
+		</div>
 	</div>
 </template>
 
@@ -22,6 +18,7 @@ With Restart button, Game title, HP info-->
 	import { ref } from "vue";
 	import { MaxHP } from "../stores/games.ts";
 	import emitter from "../utils/emitter.ts";
+	import { heart } from "../stores/icons.ts";
 
 	const props = defineProps({
 		hp: {
@@ -38,19 +35,18 @@ With Restart button, Game title, HP info-->
 	}
 
 	const MaxHPValue = MaxHP;
+	const heartCount = 5;
+	const hpPerHeart = MaxHPValue / heartCount;
+	const hpThresholds = Array.from({ length: heartCount }, (_, i) => Math.round((heartCount - i) * hpPerHeart));
 
 	emitter.on("load", () => {
 		console.log("Header loaded");
 	});
 
-	emitter.on("restart", () => {
-		console.log("Restart event received in Header");
-	});
 
 	const currentHp = ref(props.hp || MaxHPValue);
 	const targetHp = ref(props.hp || MaxHPValue);
-	const debug = ref(false);
-
+	~
 	console.log("Initial HP in Header:", currentHp.value);
 
 	emitter.on("update-hp", (data: { hp: number; timeout?: number }) => {
@@ -59,7 +55,7 @@ With Restart button, Game title, HP info-->
 	});
 
 	emitter.on("restart", () => {
-		updateHP(MaxHPValue, 500); // Reset HP to MaxHPValue with a shorter timeout for a quick reset effect
+		updateHP(MaxHPValue, 0); 
 	});
 
 	let isAnimating = false;

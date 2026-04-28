@@ -10,13 +10,34 @@
 
 .HP {
     font-weight: bold;
-    color: var(--hp);
     width: 100px;
     text-align: left;
+    display: flex;
+    gap: 4px;
+    align-items: center;
     @media (max-width: 1024px) {
         font-size: 20px;
     }
 }
+
+.hp {
+    display: inline-flex;
+    align-items: center;
+    width: 100px;
+    height: 48px;
+    color: var(--hp-inactive);
+}
+
+.hp svg {
+    width: 200%;
+    height: 200%;
+    fill: currentColor;
+}
+
+.hp.red {
+    color: var(--hp);
+}
+
 
 .restart-btn {
     padding: 8px 16px;

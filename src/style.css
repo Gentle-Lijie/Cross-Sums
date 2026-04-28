@@ -33,6 +33,7 @@
   --header-bg: #f5f5f5;
   --header-border: #ddd;
   --btn-hover-bg: #a6d4e8;
+  --hp-inactive: #c0c0c0;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -79,6 +80,7 @@
     --header-bg: #111827;
     --header-border: #374151;
     --btn-hover-bg: #4b5563;
+    --hp-inactive: #4b5563;
   }
 
   #social .button-icon {

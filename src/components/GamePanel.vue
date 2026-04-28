@@ -118,7 +118,7 @@
     }
 
     function penality() {
-        emitter.emit("update-hp", { hp: -25, timeout: 500 });
+        emitter.emit("update-hp", { hp: -20, timeout: 500 });
     }
 
     function makeIncorrect(position: { row: number; col: number }) {
@@ -217,23 +217,7 @@
         showRespawn.value = false;
         showVictory.value = false;
         verifiedCells.value = 0;
-        for (let row = 1; row < generator.grid.length; row++) {
-            for (let col = 1; col < generator.grid[0].length; col++) {
-                const cell = document.querySelector(`#main-cell-${row}-${col}`) as HTMLElement;
-                cell.classList.remove("clicked", "marked", "incorrect", "correct-cleared");
-                cell.style.color = "";
-                cell.style.opacity = "";
-            }
-        }
-        for (let row = 1; row < generator.grid.length; row++) {
-            const span = document.querySelector(`#left-${row}`) as HTMLElement;
-            if (span) span.style.backgroundColor = "";
-        }
-        for (let col = 1; col < generator.grid[0].length; col++) {
-            const span = document.querySelector(`#top-${col}`) as HTMLElement;
-            if (span) span.style.backgroundColor = "";
-        }
-        // Reset the game state here if needed
+        showGame.value = false;
     });
 
     //TODO: Add auto mode
