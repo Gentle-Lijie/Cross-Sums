@@ -26,7 +26,7 @@ function handlePlayAgain() {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: var(--overlay-bg);
     backdrop-filter: blur(5px);
     display: flex;
     align-items: center;
@@ -39,19 +39,19 @@ function handlePlayAgain() {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: var(--modal-bg);
     /* 沿用主 Grid 的浅蓝粗边框和圆角风格 */
-    border: 4px solid #bce1f0;
+    border: 4px solid var(--grid-bg);
     border-radius: 8px;
     padding: 3rem 4rem;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 20px 25px -5px, rgba(0, 0, 0, 0.04) 0 10px 10px -5px;
+    box-shadow: var(--shadow);
 }
 
 .victory-title {
     font-family: var(--mono, monospace);
     font-size: 2.5rem;
     font-weight: 500;
-    color: #2c3e50;
+    color: var(--grid-text);
     margin: 0 0 0.5rem 0;
     letter-spacing: 1px;
 }
@@ -59,14 +59,14 @@ function handlePlayAgain() {
 .victory-subtitle {
     font-family: var(--sans, sans-serif);
     font-size: 1.1rem;
-    color: #6b6375;
+    color: var(--text);
     margin: 0 0 2.5rem 0;
 }
 
 /* 沿用 header-cell 和交互效果的设计语言 */
 .victory-btn {
-    background-color: #bce1f0;
-    color: #2c3e50;
+    background-color: var(--grid-bg);
+    color: var(--grid-text);
     font-family: var(--mono, monospace);
     font-size: 1.5rem;
     font-weight: 500;
@@ -78,7 +78,7 @@ function handlePlayAgain() {
 }
 
 .victory-btn:hover {
-    background-color: #a6d4e8;
+    background-color: var(--btn-hover-bg);
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

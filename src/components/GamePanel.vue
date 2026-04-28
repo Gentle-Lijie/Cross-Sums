@@ -65,9 +65,6 @@
     const showGame = ref(false);
     const verifiedCells = ref(0);
 
-    const answer: any = ref();
-    const grid: any = ref();
-
     function getValue(row: number, col: number): any {
         if (generator.grid[row][col] === -1) {
             return "";
@@ -132,7 +129,7 @@
         const cell = document.querySelector(`#main-cell-${position.row}-${position.col}`) as HTMLElement;
         for (let i = 0; i < 10; i++) {
             setTimeout(() => {
-                cell.style.color = `rgba(0, 0, 0, ${1 - (i + 1) / 10})`;
+                cell.style.opacity = `${1 - (i + 1) / 10}`;
             }, ((200) / 10) * (i + 1));
         }
         verify(position);
@@ -177,7 +174,7 @@
 
     function updateSpan(row: number, col: number) {
         const span = document.querySelector(`#${row === 0 ? "top" : "left"}-${row === 0 ? col : row}`) as HTMLElement;
-        span.style.backgroundColor = "#d4edda";
+        span.style.backgroundColor = "var(--cell-correct-bg)";
         verifiedCells.value++;
         console.log("Verified cells count:", verifiedCells.value);
         if (verifiedCells.value === (generator.grid.length - 1) + (generator.grid[0].length - 1)) {
@@ -201,6 +198,8 @@
                 break;
         }
         showGame.value = true;
+        console.log("Generated grid:", generator.grid);
+        console.log("Answer Grid", generator.answer)
     });
 
     emitter.on("game-over", () => {
@@ -223,7 +222,16 @@
                 const cell = document.querySelector(`#main-cell-${row}-${col}`) as HTMLElement;
                 cell.classList.remove("clicked", "marked", "incorrect", "correct-cleared");
                 cell.style.color = "";
+                cell.style.opacity = "";
             }
+        }
+        for (let row = 1; row < generator.grid.length; row++) {
+            const span = document.querySelector(`#left-${row}`) as HTMLElement;
+            if (span) span.style.backgroundColor = "";
+        }
+        for (let col = 1; col < generator.grid[0].length; col++) {
+            const span = document.querySelector(`#top-${col}`) as HTMLElement;
+            if (span) span.style.backgroundColor = "";
         }
         // Reset the game state here if needed
     });

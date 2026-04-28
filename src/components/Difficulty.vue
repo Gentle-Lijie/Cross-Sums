@@ -32,10 +32,15 @@
     }
 
     .difficulty-option {
-        background-color: #bce1f0;
-        color: #2c3e50;
+        background-color: var(--grid-bg);
+        color: var(--grid-text);
         padding: 1em 2em;
-        border: 2px solid #2c3e50;
+        border: 2px solid var(--grid-text);
         border-radius: var(--radius);
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .difficulty-option:hover {
+        background-color: var(--btn-hover-bg);
     }
 </style>
