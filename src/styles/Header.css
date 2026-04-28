@@ -1,0 +1,46 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    font-size: 24px;
+}
+
+.HP {
+    font-weight: bold;
+    color: var(--hp);
+    width: 100px;
+    text-align: left;
+    @media (max-width: 1024px) {
+        font-size: 20px;
+    }
+}
+
+.restart-btn {
+    padding: 8px 16px;
+    background-color: #bce1f0;
+    color: #2c3e50;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+
+    @media (max-width: 1024px) {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+.header.title {
+    display: fixed;
+    gap: 12px;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    @media (max-width: 1024px) {
+        gap: 8px;
+    }
+}

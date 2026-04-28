@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+  import Header from './components/Header.vue'
+  import GamePanel from './components/GamePanel.vue';
 </script>
 
 <template>
-  <HelloWorld />
+  <Header />
+  <GamePanel />
 </template>

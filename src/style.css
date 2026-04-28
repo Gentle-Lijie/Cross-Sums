@@ -1,6 +1,7 @@
 :root {
   --text: #6b6375;
   --text-h: #08060d;
+  --hp: red;
   --bg: #fff;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
@@ -14,6 +15,7 @@
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
+  --radius: 0.7rem;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -101,7 +103,7 @@ code {
 .counter {
   font-size: 16px;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: var(--radius);
   color: var(--accent);
   background: var(--accent-bg);
   border: 2px solid transparent;
