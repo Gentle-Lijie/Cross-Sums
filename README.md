@@ -9,8 +9,7 @@
 [![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
-[![GitHub stars](https://img.shields.io/github/stars/Gentle-Lijie/Cross-Sums?style=for-the-badge&logo=github&color=f0c040)](https://github.com/Gentle-Lijie/Cross-Sums/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/Gentle-Lijie/Cross-Sums?style=for-the-badge&logo=github&color=4ea1f3)](https://github.com/Gentle-Lijie/Cross-Sums/network)
+
 [![GitHub issues](https://img.shields.io/github/issues/Gentle-Lijie/Cross-Sums?style=for-the-badge&logo=github&color=e05d44)](https://github.com/Gentle-Lijie/Cross-Sums/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/Gentle-Lijie/Cross-Sums?style=for-the-badge&logo=github&color=brightgreen)](https://github.com/Gentle-Lijie/Cross-Sums/commits)
 
